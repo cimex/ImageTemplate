@@ -213,7 +213,8 @@
                                         {
                                             foreach (String fileName in array)
                                             {
-                                                if (Path.GetFileName(fileName) != "Thumb.db")
+                                                FileAttributes attributes = File.GetAttributes(fileName);
+                                                if ((attributes & FileAttributes.Hidden) != FileAttributes.Hidden)
                                                 {
 %>
                             

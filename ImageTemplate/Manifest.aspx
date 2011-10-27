@@ -21,7 +21,8 @@
     {
         foreach (String fileName in cssarray)
         {
-            if (Path.GetFileName(fileName) != "Thumb.db")
+            FileAttributes attributes = File.GetAttributes(fileName);
+            if ((attributes & FileAttributes.Hidden) != FileAttributes.Hidden)
             {
                 Context.Response.Write("css/" + Path.GetFileName(fileName));
                 Context.Response.Write("\n");
@@ -34,7 +35,8 @@
     {
         foreach (String fileName in cssimagearray)
         {
-            if (Path.GetFileName(fileName) != "Thumb.db")
+            FileAttributes attributes = File.GetAttributes(fileName);
+            if ((attributes & FileAttributes.Hidden) != FileAttributes.Hidden)
             {
                 Context.Response.Write("css/images/" + Path.GetFileName(fileName));
                 Context.Response.Write("\n");
@@ -49,7 +51,8 @@
     {
         foreach (String fileName in scriptarray)
         {
-            if (Path.GetFileName(fileName) != "Thumb.db")
+            FileAttributes attributes = File.GetAttributes(fileName);
+            if ((attributes & FileAttributes.Hidden) != FileAttributes.Hidden)
             {
                 Context.Response.Write("Scripts/" + Path.GetFileName(fileName));
                 Context.Response.Write("\n");
@@ -62,7 +65,8 @@
     {
         foreach (String fileName in imagesarray)
         {
-            if (Path.GetFileName(fileName) != "Thumb.db")
+            FileAttributes attributes = File.GetAttributes(fileName);
+            if ((attributes & FileAttributes.Hidden) != FileAttributes.Hidden)
             {
                 Context.Response.Write("images/" + Path.GetFileName(fileName));
                 Context.Response.Write("\n");
@@ -75,7 +79,8 @@
     {
         foreach (String fileName in array)
         {
-            if (Path.GetFileName(fileName) != "Thumb.db")
+            FileAttributes attributes = File.GetAttributes(fileName);
+            if ((attributes & FileAttributes.Hidden) != FileAttributes.Hidden)
             {
                 Context.Response.Write("add_image_here/" + HttpUtility.UrlPathEncode(Path.GetFileName(fileName)));
                 Context.Response.Write("\n");
