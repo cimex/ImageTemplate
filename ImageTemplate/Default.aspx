@@ -190,13 +190,26 @@
                         }
                     </style>
                     <script src="Scripts/jquery-1.6.2.min.js" type="text/javascript"> </script>
-		
+		<script type="text/javascript">
+
+		    function onUpdateReady() {
+		        $('.status-message').text( window.applicationCache.status+'-  Application now cached and ready to be used offline');
+		    }
+		    window.applicationCache.addEventListener('cached', onUpdateReady);
+		    window.applicationCache.addEventListener('noupdate', onUpdateReady);
+		    if (window.applicationCache.status === window.applicationCache.CACHED) {
+		        onUpdateReady();
+		    }  
+            </script>
                 </head>
                 <body>
 
                     <div class="container">
                     <h3 id="logo"><img src="images/logo.jpg"/></h3>
                     <p>
+                    <div class="status-message"></div>
+                    </p>
+                     <p>
                     <a href="TouchScreen.aspx"><span class="label important">Click here for gallery...</span></a>
                     </p>
                     
